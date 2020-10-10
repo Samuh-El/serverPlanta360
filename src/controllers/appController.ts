@@ -58,7 +58,7 @@ public async signin(req: any, res: any): Promise<void> {
      
       
      if(datos.length > 0){
-          
+          console.log('si tiene un dato!')
           console.log(datos[0].idUsuario)
           const data=datos[0].idUsuario
           const token = jwt.sign({ _id: (datos[0].idUsuario) }, 'secretkey', {
@@ -67,7 +67,7 @@ public async signin(req: any, res: any): Promise<void> {
               //expiresIn: 120 // it will be expired after 120ms
         });
           //aqui el token puede tener mas opciones, como su tiempo de vida, cosa que tengo que modificar, para que calze con la hora de inicio y de termino de un espectaculo
-          return res.status(200).json({ token,data })
+          return res.json({ token })
      }else{
           return res.status(401).send("correo o contraseña incorrecta") 
      }
@@ -90,7 +90,7 @@ public async eliminarEmpresa(req: any, res: any): Promise<void> {
      console.log(idEmpresa)
      console.log(nombreEmpresa) 
   
-      
+       
 
      const datos = await pool.query('UPDATE `Empresa` SET activo = 0  WHERE idEmpresa =\'' + idEmpresa + '\' ');
      const data = await pool.query('UPDATE `Link` SET activo = 0  WHERE idEmpresa =\'' + idEmpresa + '\' ');
@@ -99,6 +99,18 @@ public async eliminarEmpresa(req: any, res: any): Promise<void> {
     
 }
 
+
+public eliminarLink(req: any, res: any) {
+     const { idLink,link } = req.body;
+     console.log(idLink)
+     console.log(link) 
+  
+   
+     pool.query('UPDATE `Link` SET activo = 0  WHERE idLink =\'' + idLink + '\' '); 
+     res.json({text:"eliminado con exito"});
+      
+    
+}
 
 public crearEmpresa(req: any, res: any) {
      pool.query('INSERT INTO `Empresa` SET ?', [req.body]);

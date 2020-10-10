@@ -62,6 +62,7 @@ class AppController {
             console.log(password);
             const datos = yield database_1.default.query('SELECT  idUsuario FROM `Usuario`  WHERE nombreUsuario =\'' + name + '\' AND claveUsuario =\'' + password + '\'');
             if (datos.length > 0) {
+                console.log('si tiene un dato!');
                 console.log(datos[0].idUsuario);
                 const data = datos[0].idUsuario;
                 const token = jsonwebtoken_1.default.sign({ _id: (datos[0].idUsuario) }, 'secretkey', {
@@ -70,7 +71,7 @@ class AppController {
                     //expiresIn: 120 // it will be expired after 120ms
                 });
                 //aqui el token puede tener mas opciones, como su tiempo de vida, cosa que tengo que modificar, para que calze con la hora de inicio y de termino de un espectaculo
-                return res.status(200).json({ token, data });
+                return res.json({ token });
             }
             else {
                 return res.status(401).send("correo o contraseña incorrecta");
@@ -98,6 +99,13 @@ class AppController {
             const data = yield database_1.default.query('UPDATE `Link` SET activo = 0  WHERE idEmpresa =\'' + idEmpresa + '\' ');
             res.json(datos);
         });
+    }
+    eliminarLink(req, res) {
+        const { idLink, link } = req.body;
+        console.log(idLink);
+        console.log(link);
+        database_1.default.query('UPDATE `Link` SET activo = 0  WHERE idLink =\'' + idLink + '\' ');
+        res.json({ text: "eliminado con exito" });
     }
     crearEmpresa(req, res) {
         database_1.default.query('INSERT INTO `Empresa` SET ?', [req.body]);

@@ -32,6 +32,7 @@ class AppRoutes {
           this.router.get('/get-info-empresas',appController.getInfoEmpresas);
           this.router.get('/get-info-links',appController.getInfoLinks);
           this.router.post('/eliminar-empresa', appController.eliminarEmpresa);
+          this.router.post('/eliminar-link', appController.eliminarLink);
           this.router.post('/crear-empresa', appController.crearEmpresa);
 
           //get listado de info que ira en banner de home, tal como la ruta de la imagen, su descripcion,horario,etc

@@ -7,7 +7,7 @@ export default{
          user:'culturap_planta',  
          password:'assdD1234!!festrong',
          database:'culturap_planta360',       
-               
+                  
          //datos de conexion a localhost   
             
          // host:'localhost', 
