@@ -11,7 +11,7 @@ class AppController {
           // var emailTo="felipe.ascencio@virginiogomez.cl"
           var contentHTML: any; 
           const { nombre, email,fono, mensaje } = req.body;
-          contentHTML = `
+          contentHTML = ` 
           Mensaje de contacto de Planta 360
           Nombre: ${nombre}
           Email: ${email}
@@ -26,13 +26,13 @@ class AppController {
                secure: false,
                requireTLS: true,
                auth: {
-                    user: 'productochileoficial@gmail.com',
-                    pass: 'p@123!..!'
+                    user: 'contactoplanta360@gmail.com',
+                    pass: 'asdq!33C'
                }
           });
 
           let mailOptions = {
-               from: 'productochileoficial@gmail.com',
+               from: 'contactoplanta360@gmail.com',
                to: emailTo,
                subject: 'Contacto Planta 360 de ' + nombre, //este mensaje debe ir cambiando, asi no quedan todos juntos 
                text: contentHTML
