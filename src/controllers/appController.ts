@@ -44,7 +44,7 @@ class AppController {
                }
                res.json({ text: 'enviado correctamente' })
           });
-     }
+     } 
 
 //metodos de practica
 public async signin(req: any, res: any): Promise<void> {

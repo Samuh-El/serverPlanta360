@@ -29,9 +29,9 @@ class AppRoutes {
 
           this.router.post('/send-email',appController.sendEmail);
           this.router.post('/signin', appController.signin);
-          this.router.get('/get-info-empresas',appController.getInfoEmpresas);
+          this.router.get('/get-info-empresas',appController.getInfoEmpresas); 
           this.router.get('/get-info-links',appController.getInfoLinks);
-          this.router.post('/eliminar-empresa', appController.eliminarEmpresa);
+          this.router.post('/eliminar-empresa', appController.eliminarEmpresa);  
           this.router.post('/eliminar-link', appController.eliminarLink);
           this.router.post('/crear-empresa', appController.crearEmpresa);
 
