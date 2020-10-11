@@ -111,6 +111,10 @@ class AppController {
         database_1.default.query('INSERT INTO `Empresa` SET ?', [req.body]);
         res.json({ text: "Empresa agregada" });
     }
+    crearLink(req, res) {
+        database_1.default.query('INSERT INTO `Link` SET ?', [req.body]);
+        res.json({ text: "Link agregada" });
+    }
     listBanner(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const data = yield database_1.default.query('');

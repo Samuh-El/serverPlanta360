@@ -29,6 +29,7 @@ class AppRoutes {
         this.router.post('/eliminar-empresa', appController_1.default.eliminarEmpresa);
         this.router.post('/eliminar-link', appController_1.default.eliminarLink);
         this.router.post('/crear-empresa', appController_1.default.crearEmpresa);
+        this.router.post('/crear-link', appController_1.default.crearLink);
         //get listado de info que ira en banner de home, tal como la ruta de la imagen, su descripcion,horario,etc
         this.router.get('list-banner', appController_1.default.listBanner);
         //get salas trae info de salas en estreno, por lo que hace un get de espectaculos que esten en la fecha proxima, asi como la ruta de la imagen, horario y descripcion 

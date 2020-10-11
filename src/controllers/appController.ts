@@ -117,6 +117,11 @@ public crearEmpresa(req: any, res: any) {
      res.json({text:"Empresa agregada"});
 }
 
+public crearLink(req: any, res: any) {
+     pool.query('INSERT INTO `Link` SET ?', [req.body]);
+     res.json({text:"Link agregada"}); 
+}
+
 
      public async listBanner(req: Request, res: Response) {
           const data = await pool.query('');
